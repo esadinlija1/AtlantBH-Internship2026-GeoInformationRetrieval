@@ -1,0 +1,29 @@
+[project]
+name = "geoir"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "esadinlija1", email = "92315289+esadinlija1@users.noreply.github.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.4.6",
+    "pandas>=3.1.0",
+    "pyarrow>=26.0.1",
+    "pyrosm>=0.29.0",
+    "sentence-transformers>=6.2.0",
+]
+
+[project.scripts]
+geoir = "geoir:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "jupyterlab>=4.6.5",
+]
