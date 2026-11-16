@@ -11,7 +11,7 @@ INTERIM_DIR = DATA_DIR / "interim"
 PBF_URL = "https://download.geofabrik.de/europe/bosnia-herzegovina-latest.osm.pbf"
 PBF_PATH = RAW_DIR / "bih.osm.pbf"
 MD5_PATH = RAW_DIR / "bih.osm.pbf.md5"
-OUT_PATH = INTERIM_DIR / "pois.parquet"
+OUT_PATH = INTERIM_DIR / "pois2.parquet"
 
 
 def md5_of(path: Path, chunk: int = 1 << 20) -> str:
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     ensure_data()
 
     osm = OSM(str(PBF_PATH))
-    gdf = osm.get_pois()
+    gdf = osm.get_pois(custom_filter=[])
     print(len(gdf))
     print(gdf["osm_type"].value_counts())
     print(gdf.total_bounds)
